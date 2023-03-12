@@ -6,6 +6,11 @@ const config: CodegenConfig = {
   generates: {
     'src/graphql': {
       preset,
+      presetConfig: {
+        typesPluginsConfig: {
+          contextType: './context#Context',
+        },
+      },
     },
   },
 };
