@@ -5,7 +5,8 @@
   "scripts": {
     "run": "bun run src/index.ts",
     "dev": "bun run --hot src/index.ts",
-    "codegen": "graphql-codegen"
+    "codegen": "graphql-codegen",
+    "bench": "bun run bench/query.bench.ts"
   },
   "devDependencies": {
     "bun-types": "^0.5.0"
@@ -15,6 +16,7 @@
     "@graphql-codegen/cli": "^3.2.2",
     "graphql": "^16.6.0",
     "graphql-scalars": "^1.20.1",
-    "graphql-yoga": "^3.7.2"
+    "graphql-yoga": "^3.7.2",
+    "mitata": "^0.1.6"
   }
 }
