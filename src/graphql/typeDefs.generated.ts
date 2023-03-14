@@ -35,7 +35,11 @@ export const typeDefs = {
                 kind: 'NonNullType',
                 type: {
                   kind: 'NamedType',
-                  name: { kind: 'Name', value: 'ID', loc: { start: 58, end: 60 } },
+                  name: {
+                    kind: 'Name',
+                    value: 'ID',
+                    loc: { start: 58, end: 60 },
+                  },
                   loc: { start: 58, end: 60 },
                 },
                 loc: { start: 58, end: 61 },
@@ -63,16 +67,28 @@ export const typeDefs = {
       fields: [
         {
           kind: 'FieldDefinition',
-          name: { kind: 'Name', value: 'markBookAsRead', loc: { start: 97, end: 111 } },
+          name: {
+            kind: 'Name',
+            value: 'markBookAsRead',
+            loc: { start: 97, end: 111 },
+          },
           arguments: [
             {
               kind: 'InputValueDefinition',
-              name: { kind: 'Name', value: 'id', loc: { start: 112, end: 114 } },
+              name: {
+                kind: 'Name',
+                value: 'id',
+                loc: { start: 112, end: 114 },
+              },
               type: {
                 kind: 'NonNullType',
                 type: {
                   kind: 'NamedType',
-                  name: { kind: 'Name', value: 'ID', loc: { start: 116, end: 118 } },
+                  name: {
+                    kind: 'Name',
+                    value: 'ID',
+                    loc: { start: 116, end: 118 },
+                  },
                   loc: { start: 116, end: 118 },
                 },
                 loc: { start: 116, end: 119 },
@@ -85,7 +101,11 @@ export const typeDefs = {
             kind: 'NonNullType',
             type: {
               kind: 'NamedType',
-              name: { kind: 'Name', value: 'Book', loc: { start: 122, end: 126 } },
+              name: {
+                kind: 'Name',
+                value: 'Book',
+                loc: { start: 122, end: 126 },
+              },
               loc: { start: 122, end: 126 },
             },
             loc: { start: 122, end: 127 },
@@ -110,7 +130,11 @@ export const typeDefs = {
             kind: 'NonNullType',
             type: {
               kind: 'NamedType',
-              name: { kind: 'Name', value: 'ID', loc: { start: 149, end: 151 } },
+              name: {
+                kind: 'Name',
+                value: 'ID',
+                loc: { start: 149, end: 151 },
+              },
               loc: { start: 149, end: 151 },
             },
             loc: { start: 149, end: 152 },
@@ -126,7 +150,11 @@ export const typeDefs = {
             kind: 'NonNullType',
             type: {
               kind: 'NamedType',
-              name: { kind: 'Name', value: 'String', loc: { start: 161, end: 167 } },
+              name: {
+                kind: 'Name',
+                value: 'String',
+                loc: { start: 161, end: 167 },
+              },
               loc: { start: 161, end: 167 },
             },
             loc: { start: 161, end: 168 },
@@ -149,12 +177,20 @@ export const typeDefs = {
           arguments: [
             {
               kind: 'InputValueDefinition',
-              name: { kind: 'Name', value: 'id', loc: { start: 198, end: 200 } },
+              name: {
+                kind: 'Name',
+                value: 'id',
+                loc: { start: 198, end: 200 },
+              },
               type: {
                 kind: 'NonNullType',
                 type: {
                   kind: 'NamedType',
-                  name: { kind: 'Name', value: 'ID', loc: { start: 202, end: 204 } },
+                  name: {
+                    kind: 'Name',
+                    value: 'ID',
+                    loc: { start: 202, end: 204 },
+                  },
                   loc: { start: 202, end: 204 },
                 },
                 loc: { start: 202, end: 205 },
@@ -165,7 +201,11 @@ export const typeDefs = {
           ],
           type: {
             kind: 'NamedType',
-            name: { kind: 'Name', value: 'User', loc: { start: 208, end: 212 } },
+            name: {
+              kind: 'Name',
+              value: 'User',
+              loc: { start: 208, end: 212 },
+            },
             loc: { start: 208, end: 212 },
           },
           directives: [],
@@ -188,7 +228,11 @@ export const typeDefs = {
             kind: 'NonNullType',
             type: {
               kind: 'NamedType',
-              name: { kind: 'Name', value: 'ID', loc: { start: 234, end: 236 } },
+              name: {
+                kind: 'Name',
+                value: 'ID',
+                loc: { start: 234, end: 236 },
+              },
               loc: { start: 234, end: 236 },
             },
             loc: { start: 234, end: 237 },
@@ -198,13 +242,21 @@ export const typeDefs = {
         },
         {
           kind: 'FieldDefinition',
-          name: { kind: 'Name', value: 'fullName', loc: { start: 240, end: 248 } },
+          name: {
+            kind: 'Name',
+            value: 'fullName',
+            loc: { start: 240, end: 248 },
+          },
           arguments: [],
           type: {
             kind: 'NonNullType',
             type: {
               kind: 'NamedType',
-              name: { kind: 'Name', value: 'String', loc: { start: 250, end: 256 } },
+              name: {
+                kind: 'Name',
+                value: 'String',
+                loc: { start: 250, end: 256 },
+              },
               loc: { start: 250, end: 256 },
             },
             loc: { start: 250, end: 257 },
@@ -214,13 +266,21 @@ export const typeDefs = {
         },
         {
           kind: 'FieldDefinition',
-          name: { kind: 'Name', value: 'isAdmin', loc: { start: 260, end: 267 } },
+          name: {
+            kind: 'Name',
+            value: 'isAdmin',
+            loc: { start: 260, end: 267 },
+          },
           arguments: [],
           type: {
             kind: 'NonNullType',
             type: {
               kind: 'NamedType',
-              name: { kind: 'Name', value: 'Boolean', loc: { start: 269, end: 276 } },
+              name: {
+                kind: 'Name',
+                value: 'Boolean',
+                loc: { start: 269, end: 276 },
+              },
               loc: { start: 269, end: 276 },
             },
             loc: { start: 269, end: 277 },
