@@ -21,6 +21,7 @@
     "graphql": "^16.6.0",
     "graphql-scalars": "^1.20.1",
     "graphql-yoga": "^3.7.2",
-    "mitata": "^0.1.6"
+    "mitata": "^0.1.6",
+    "prettier": "^2.8.4"
   }
 }
