@@ -12,6 +12,10 @@ const config: CodegenConfig = {
         },
       },
     },
+    './test/gql/': {
+      documents: ['test/**/*.ts'],
+      preset: 'client-preset',
+    },
   },
 };
 export default config;
