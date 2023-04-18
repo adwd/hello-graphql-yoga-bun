@@ -48,7 +48,13 @@ bench('setup w/o cache', () => {
 (() => {
   const schema = createSchema({ typeDefs, resolvers });
   const graphqlEndpoint = '/test-graphql';
-  const yoga = createYoga({ schema, graphqlEndpoint, logging: false, parserCache: false, validationCache: false });
+  const yoga = createYoga({
+    schema,
+    graphqlEndpoint,
+    logging: false,
+    parserCache: false,
+    validationCache: false,
+  });
 
   bench('query w/o cache', async () => {
     const _res = await yoga.fetch(`http://yoga/test-graphql`, {

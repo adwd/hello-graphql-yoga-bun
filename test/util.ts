@@ -4,7 +4,7 @@ import { YogaServerInstance } from 'graphql-yoga';
 
 export function createExecuter<
   TServerContext extends Record<string, any> = {},
-  TUserContext extends Record<string, any> = {}
+  TUserContext extends Record<string, any> = {},
 >(yoga: YogaServerInstance<TServerContext, TUserContext>) {
   return async function executeOperation<TResult, TVariables>(
     operation: TypedDocumentNode<TResult, TVariables>,
@@ -21,7 +21,7 @@ export function createExecuter<
           query: printGql(operation),
           variables: variables ?? undefined,
         }),
-      })
+      }),
     );
     return await response.json();
   };
