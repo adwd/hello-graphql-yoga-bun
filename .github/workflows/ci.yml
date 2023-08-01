@@ -12,8 +12,9 @@ jobs:
       - name: Use Bun
         uses: antongolub/action-setup-bun@v1
         with:
+          bun-version: 0.7.1
           cache: true
           cache-bin: true
       - run: bun install
-      - run: bunx prisma generate
+      - run: bun prisma generate
       - run: bun test
