@@ -81,26 +81,26 @@ export type User = {
   isAdmin: Scalars['Boolean']['output'];
 };
 
-export type UserQueryQueryVariables = Exact<{ [key: string]: never }>;
+export type BookQueryQueryVariables = Exact<{ [key: string]: never }>;
 
-export type UserQueryQuery = {
+export type BookQueryQuery = {
   __typename?: 'Query';
-  user?: { __typename?: 'User'; id: string; fullName: string } | null;
+  book?: { __typename?: 'Book'; id: string; isbn: string } | null;
 };
 
-export const UserQueryDocument = {
+export const BookQueryDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'UserQuery' },
+      name: { kind: 'Name', value: 'BookQuery' },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'user' },
+            name: { kind: 'Name', value: 'book' },
             arguments: [
               {
                 kind: 'Argument',
@@ -112,7 +112,7 @@ export const UserQueryDocument = {
               kind: 'SelectionSet',
               selections: [
                 { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'fullName' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'isbn' } },
               ],
             },
           },
@@ -120,4 +120,4 @@ export const UserQueryDocument = {
       },
     },
   ],
-} as unknown as DocumentNode<UserQueryQuery, UserQueryQueryVariables>;
+} as unknown as DocumentNode<BookQueryQuery, BookQueryQueryVariables>;
