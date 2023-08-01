@@ -25,3 +25,41 @@ test('should handle a GraphQL operation', async () => {
   expect(result.data?.book?.id).toEqual('book:1');
   expect(result.data?.book?.isbn).toEqual('isbn');
 });
+
+test('should create a user and get it', async () => {
+  const CreateUserMutation = graphql(/* GraphQL */ `
+    mutation CreateUserMutation {
+      createUser(input: { fullName: "Test", email: "example@example.com" }) {
+        user {
+          id
+          fullName
+          email
+          isAdmin
+        }
+      }
+    }
+  `);
+
+  const result = await execute(CreateUserMutation);
+
+  expect(result.data?.createUser?.user?.id).toEqual('1');
+  expect(result.data?.createUser?.user?.fullName).toEqual('Test');
+
+  const UserQuery = graphql(/* GraphQL */ `
+    query UserQuery {
+      user(id: "1") {
+        id
+        fullName
+        email
+        isAdmin
+      }
+    }
+  `);
+
+  const result2 = await execute(UserQuery);
+
+  expect(result2.data?.user?.id).toEqual('1');
+  expect(result2.data?.user?.fullName).toEqual('Test');
+  expect(result2.data?.user?.email).toEqual('example@example.com');
+  expect(result2.data?.user?.isAdmin).toEqual(true);
+});
