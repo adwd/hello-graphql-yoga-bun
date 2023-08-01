@@ -17,4 +17,8 @@ jobs:
           cache-bin: true
       - run: bun install
       - run: bun prisma generate
+        env:
+          DATABASE_URL: 'file:./dev.db'
       - run: bun run e2e
+        env:
+          DATABASE_URL: 'file:./dev.db'
