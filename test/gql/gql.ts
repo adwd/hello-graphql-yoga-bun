@@ -15,6 +15,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
   '\n    query BookQuery {\n      book(id: "1") {\n        id\n        isbn\n      }\n    }\n  ':
     types.BookQueryDocument,
+  '\n    mutation CreateUserMutation {\n      createUser(input: { fullName: "Test", email: "example@example.com" }) {\n        user {\n          id\n          fullName\n          email\n          isAdmin\n        }\n      }\n    }\n  ':
+    types.CreateUserMutationDocument,
+  '\n    query UserQuery {\n      user(id: "1") {\n        id\n        fullName\n        email\n        isAdmin\n      }\n    }\n  ':
+    types.UserQueryDocument,
 };
 
 /**
@@ -37,6 +41,18 @@ export function graphql(source: string): unknown;
 export function graphql(
   source: '\n    query BookQuery {\n      book(id: "1") {\n        id\n        isbn\n      }\n    }\n  ',
 ): (typeof documents)['\n    query BookQuery {\n      book(id: "1") {\n        id\n        isbn\n      }\n    }\n  '];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n    mutation CreateUserMutation {\n      createUser(input: { fullName: "Test", email: "example@example.com" }) {\n        user {\n          id\n          fullName\n          email\n          isAdmin\n        }\n      }\n    }\n  ',
+): (typeof documents)['\n    mutation CreateUserMutation {\n      createUser(input: { fullName: "Test", email: "example@example.com" }) {\n        user {\n          id\n          fullName\n          email\n          isAdmin\n        }\n      }\n    }\n  '];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n    query UserQuery {\n      user(id: "1") {\n        id\n        fullName\n        email\n        isAdmin\n      }\n    }\n  ',
+): (typeof documents)['\n    query UserQuery {\n      user(id: "1") {\n        id\n        fullName\n        email\n        isAdmin\n      }\n    }\n  '];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

@@ -88,6 +88,37 @@ export type BookQueryQuery = {
   book?: { __typename?: 'Book'; id: string; isbn: string } | null;
 };
 
+export type CreateUserMutationMutationVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type CreateUserMutationMutation = {
+  __typename?: 'Mutation';
+  createUser: {
+    __typename?: 'CreateUserPayload';
+    user?: {
+      __typename?: 'User';
+      id: string;
+      fullName: string;
+      email: string;
+      isAdmin: boolean;
+    } | null;
+  };
+};
+
+export type UserQueryQueryVariables = Exact<{ [key: string]: never }>;
+
+export type UserQueryQuery = {
+  __typename?: 'Query';
+  user?: {
+    __typename?: 'User';
+    id: string;
+    fullName: string;
+    email: string;
+    isAdmin: boolean;
+  } | null;
+};
+
 export const BookQueryDocument = {
   kind: 'Document',
   definitions: [
@@ -121,3 +152,113 @@ export const BookQueryDocument = {
     },
   ],
 } as unknown as DocumentNode<BookQueryQuery, BookQueryQueryVariables>;
+export const CreateUserMutationDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'CreateUserMutation' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'createUser' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'input' },
+                value: {
+                  kind: 'ObjectValue',
+                  fields: [
+                    {
+                      kind: 'ObjectField',
+                      name: { kind: 'Name', value: 'fullName' },
+                      value: {
+                        kind: 'StringValue',
+                        value: 'Test',
+                        block: false,
+                      },
+                    },
+                    {
+                      kind: 'ObjectField',
+                      name: { kind: 'Name', value: 'email' },
+                      value: {
+                        kind: 'StringValue',
+                        value: 'example@example.com',
+                        block: false,
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'user' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'fullName' },
+                      },
+                      { kind: 'Field', name: { kind: 'Name', value: 'email' } },
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'isAdmin' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  CreateUserMutationMutation,
+  CreateUserMutationMutationVariables
+>;
+export const UserQueryDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'UserQuery' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'user' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'id' },
+                value: { kind: 'StringValue', value: '1', block: false },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'fullName' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'email' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'isAdmin' } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<UserQueryQuery, UserQueryQueryVariables>;

@@ -17,4 +17,4 @@ jobs:
           cache-bin: true
       - run: bun install
       - run: bun prisma generate
-      - run: bun test
+      - run: bun run e2e

@@ -5,6 +5,7 @@
   "scripts": {
     "run": "bun run src/index.ts",
     "dev": "bun run --hot src/index.ts",
+    "e2e": "bun run prisma migrate reset -f && bun test",
     "build": "bun build src/index.ts",
     "codegen": "graphql-codegen",
     "bench": "bun run bench/query.bench.ts",
