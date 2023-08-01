@@ -35,9 +35,24 @@ export type Book = {
   isbn: Scalars['String']['output'];
 };
 
+export type CreateUserInput = {
+  email: Scalars['String']['input'];
+  fullName: Scalars['String']['input'];
+};
+
+export type CreateUserPayload = {
+  __typename?: 'CreateUserPayload';
+  user?: Maybe<User>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  createUser: CreateUserPayload;
   markBookAsRead: Book;
+};
+
+export type MutationCreateUserArgs = {
+  input: CreateUserInput;
 };
 
 export type MutationMarkBookAsReadArgs = {
@@ -60,6 +75,7 @@ export type QueryUserArgs = {
 
 export type User = {
   __typename?: 'User';
+  email: Scalars['String']['output'];
   fullName: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   isAdmin: Scalars['Boolean']['output'];

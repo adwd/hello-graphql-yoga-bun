@@ -266,10 +266,30 @@ export const typeDefs = {
         },
         {
           kind: 'FieldDefinition',
+          name: { kind: 'Name', value: 'email', loc: { start: 259, end: 264 } },
+          arguments: [],
+          type: {
+            kind: 'NonNullType',
+            type: {
+              kind: 'NamedType',
+              name: {
+                kind: 'Name',
+                value: 'String',
+                loc: { start: 266, end: 272 },
+              },
+              loc: { start: 266, end: 272 },
+            },
+            loc: { start: 266, end: 273 },
+          },
+          directives: [],
+          loc: { start: 259, end: 273 },
+        },
+        {
+          kind: 'FieldDefinition',
           name: {
             kind: 'Name',
             value: 'isAdmin',
-            loc: { start: 259, end: 266 },
+            loc: { start: 276, end: 283 },
           },
           arguments: [],
           type: {
@@ -279,18 +299,158 @@ export const typeDefs = {
               name: {
                 kind: 'Name',
                 value: 'Boolean',
-                loc: { start: 268, end: 275 },
+                loc: { start: 285, end: 292 },
               },
-              loc: { start: 268, end: 275 },
+              loc: { start: 285, end: 292 },
             },
-            loc: { start: 268, end: 276 },
+            loc: { start: 285, end: 293 },
           },
           directives: [],
-          loc: { start: 259, end: 276 },
+          loc: { start: 276, end: 293 },
         },
       ],
-      loc: { start: 215, end: 278 },
+      loc: { start: 215, end: 295 },
+    },
+    {
+      kind: 'ObjectTypeExtension',
+      name: { kind: 'Name', value: 'Mutation', loc: { start: 309, end: 317 } },
+      interfaces: [],
+      directives: [],
+      fields: [
+        {
+          kind: 'FieldDefinition',
+          name: {
+            kind: 'Name',
+            value: 'createUser',
+            loc: { start: 322, end: 332 },
+          },
+          arguments: [
+            {
+              kind: 'InputValueDefinition',
+              name: {
+                kind: 'Name',
+                value: 'input',
+                loc: { start: 333, end: 338 },
+              },
+              type: {
+                kind: 'NonNullType',
+                type: {
+                  kind: 'NamedType',
+                  name: {
+                    kind: 'Name',
+                    value: 'CreateUserInput',
+                    loc: { start: 340, end: 355 },
+                  },
+                  loc: { start: 340, end: 355 },
+                },
+                loc: { start: 340, end: 356 },
+              },
+              directives: [],
+              loc: { start: 333, end: 356 },
+            },
+          ],
+          type: {
+            kind: 'NonNullType',
+            type: {
+              kind: 'NamedType',
+              name: {
+                kind: 'Name',
+                value: 'CreateUserPayload',
+                loc: { start: 359, end: 376 },
+              },
+              loc: { start: 359, end: 376 },
+            },
+            loc: { start: 359, end: 377 },
+          },
+          directives: [],
+          loc: { start: 322, end: 377 },
+        },
+      ],
+      loc: { start: 297, end: 379 },
+    },
+    {
+      kind: 'InputObjectTypeDefinition',
+      name: {
+        kind: 'Name',
+        value: 'CreateUserInput',
+        loc: { start: 387, end: 402 },
+      },
+      directives: [],
+      fields: [
+        {
+          kind: 'InputValueDefinition',
+          name: {
+            kind: 'Name',
+            value: 'fullName',
+            loc: { start: 407, end: 415 },
+          },
+          type: {
+            kind: 'NonNullType',
+            type: {
+              kind: 'NamedType',
+              name: {
+                kind: 'Name',
+                value: 'String',
+                loc: { start: 417, end: 423 },
+              },
+              loc: { start: 417, end: 423 },
+            },
+            loc: { start: 417, end: 424 },
+          },
+          directives: [],
+          loc: { start: 407, end: 424 },
+        },
+        {
+          kind: 'InputValueDefinition',
+          name: { kind: 'Name', value: 'email', loc: { start: 427, end: 432 } },
+          type: {
+            kind: 'NonNullType',
+            type: {
+              kind: 'NamedType',
+              name: {
+                kind: 'Name',
+                value: 'String',
+                loc: { start: 434, end: 440 },
+              },
+              loc: { start: 434, end: 440 },
+            },
+            loc: { start: 434, end: 441 },
+          },
+          directives: [],
+          loc: { start: 427, end: 441 },
+        },
+      ],
+      loc: { start: 381, end: 443 },
+    },
+    {
+      kind: 'ObjectTypeDefinition',
+      name: {
+        kind: 'Name',
+        value: 'CreateUserPayload',
+        loc: { start: 450, end: 467 },
+      },
+      interfaces: [],
+      directives: [],
+      fields: [
+        {
+          kind: 'FieldDefinition',
+          name: { kind: 'Name', value: 'user', loc: { start: 472, end: 476 } },
+          arguments: [],
+          type: {
+            kind: 'NamedType',
+            name: {
+              kind: 'Name',
+              value: 'User',
+              loc: { start: 478, end: 482 },
+            },
+            loc: { start: 478, end: 482 },
+          },
+          directives: [],
+          loc: { start: 472, end: 482 },
+        },
+      ],
+      loc: { start: 445, end: 484 },
     },
   ],
-  loc: { start: 0, end: 279 },
+  loc: { start: 0, end: 485 },
 } as unknown as DocumentNode;

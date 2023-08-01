@@ -1,8 +1,23 @@
 extend type Query {
   user(id: ID!): User
 }
+
 type User {
   id: ID!
   fullName: String!
+  email: String!
   isAdmin: Boolean!
+}
+
+extend type Mutation {
+  createUser(input: CreateUserInput!): CreateUserPayload!
+}
+
+input CreateUserInput {
+  fullName: String!
+  email: String!
+}
+
+type CreateUserPayload {
+  user: User
 }

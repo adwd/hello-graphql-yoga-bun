@@ -38,9 +38,24 @@ export type Book = {
   isbn: Scalars['String']['output'];
 };
 
+export type CreateUserInput = {
+  email: Scalars['String']['input'];
+  fullName: Scalars['String']['input'];
+};
+
+export type CreateUserPayload = {
+  __typename?: 'CreateUserPayload';
+  user?: Maybe<User>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  createUser: CreateUserPayload;
   markBookAsRead: Book;
+};
+
+export type MutationCreateUserArgs = {
+  input: CreateUserInput;
 };
 
 export type MutationMarkBookAsReadArgs = {
@@ -63,6 +78,7 @@ export type QueryUserArgs = {
 
 export type User = {
   __typename?: 'User';
+  email: Scalars['String']['output'];
   fullName: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   isAdmin: Scalars['Boolean']['output'];
@@ -178,6 +194,8 @@ export type ResolversTypes = {
   Book: ResolverTypeWrapper<Book>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  CreateUserInput: CreateUserInput;
+  CreateUserPayload: ResolverTypeWrapper<CreateUserPayload>;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
   User: ResolverTypeWrapper<User>;
@@ -189,6 +207,8 @@ export type ResolversParentTypes = {
   Book: Book;
   ID: Scalars['ID']['output'];
   String: Scalars['String']['output'];
+  CreateUserInput: CreateUserInput;
+  CreateUserPayload: CreateUserPayload;
   Mutation: {};
   Query: {};
   User: User;
@@ -205,11 +225,26 @@ export type BookResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type CreateUserPayloadResolvers<
+  ContextType = Context,
+  ParentType extends
+    ResolversParentTypes['CreateUserPayload'] = ResolversParentTypes['CreateUserPayload'],
+> = {
+  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type MutationResolvers<
   ContextType = Context,
   ParentType extends
     ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation'],
 > = {
+  createUser?: Resolver<
+    ResolversTypes['CreateUserPayload'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationCreateUserArgs, 'input'>
+  >;
   markBookAsRead?: Resolver<
     ResolversTypes['Book'],
     ParentType,
@@ -242,6 +277,7 @@ export type UserResolvers<
   ParentType extends
     ResolversParentTypes['User'] = ResolversParentTypes['User'],
 > = {
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   fullName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   isAdmin?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
@@ -250,6 +286,7 @@ export type UserResolvers<
 
 export type Resolvers<ContextType = Context> = {
   Book?: BookResolvers<ContextType>;
+  CreateUserPayload?: CreateUserPayloadResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
