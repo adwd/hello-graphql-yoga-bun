@@ -11,17 +11,17 @@ const yoga = createYoga({ schema, graphqlEndpoint, logging: false });
 const execute = createExecuter(yoga);
 
 test('should handle a GraphQL operation', async () => {
-  const UserQuery = graphql(/* GraphQL */ `
-    query UserQuery {
-      user(id: "1") {
+  const BookQuery = graphql(/* GraphQL */ `
+    query BookQuery {
+      book(id: "1") {
         id
-        fullName
+        isbn
       }
     }
   `);
 
-  const result = await execute(UserQuery);
+  const result = await execute(BookQuery);
 
-  expect(result.data?.user?.id).toEqual('1');
-  expect(result.data?.user?.fullName).toEqual('John Doe');
+  expect(result.data?.book?.id).toEqual('book:1');
+  expect(result.data?.book?.isbn).toEqual('isbn');
 });
