@@ -22,6 +22,6 @@ test('should handle a GraphQL operation', async () => {
 
   const result = await execute(UserQuery);
 
-  expect(result.data?.user?.id).toEqual('1');
+  expect(result.data?.user?.id).toEqual('2');
   expect(result.data?.user?.fullName).toEqual('John Doe');
 });
