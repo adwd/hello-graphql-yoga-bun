@@ -11,19 +11,28 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]: Maybe<T[SubKey]>;
 };
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = { [_ in K]?: never };
+export type Incremental<T> =
+  | T
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
 };
 
 export type Book = {
   __typename?: 'Book';
-  id: Scalars['ID'];
-  isbn: Scalars['String'];
+  id: Scalars['ID']['output'];
+  isbn: Scalars['String']['output'];
 };
 
 export type Mutation = {
@@ -32,7 +41,7 @@ export type Mutation = {
 };
 
 export type MutationMarkBookAsReadArgs = {
-  id: Scalars['ID'];
+  id: Scalars['ID']['input'];
 };
 
 export type Query = {
@@ -42,18 +51,18 @@ export type Query = {
 };
 
 export type QueryBookArgs = {
-  id: Scalars['ID'];
+  id: Scalars['ID']['input'];
 };
 
 export type QueryUserArgs = {
-  id: Scalars['ID'];
+  id: Scalars['ID']['input'];
 };
 
 export type User = {
   __typename?: 'User';
-  fullName: Scalars['String'];
-  id: Scalars['ID'];
-  isAdmin: Scalars['Boolean'];
+  fullName: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  isAdmin: Scalars['Boolean']['output'];
 };
 
 export type UserQueryQueryVariables = Exact<{ [key: string]: never }>;

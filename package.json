@@ -5,25 +5,29 @@
   "scripts": {
     "run": "bun run src/index.ts",
     "dev": "bun run --hot src/index.ts",
+    "build": "bun build src/index.ts",
     "codegen": "graphql-codegen",
     "bench": "bun run bench/query.bench.ts",
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "bun-types": "^0.5.8"
+    "bun-types": "^0.7.1"
   },
   "dependencies": {
-    "@eddeee888/gcg-typescript-resolver-files": "^0.4.0",
-    "@graphql-codegen/cli": "^3.3.0",
-    "@graphql-codegen/client-preset": "^3.0.0",
-    "@graphql-tools/executor-http": "^0.1.9",
+    "@eddeee888/gcg-typescript-resolver-files": "^0.5.0",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.1.0",
+    "@graphql-tools/executor-http": "^1.0.2",
     "@graphql-typed-document-node/core": "^3.2.0",
-    "@graphql-yoga/plugin-response-cache": "^1.9.0",
-    "@graphql-yoga/plugin-sofa": "^1.9.0",
-    "graphql": "^16.6.0",
-    "graphql-scalars": "^1.21.3",
-    "graphql-yoga": "^3.9.0",
+    "@graphql-yoga/plugin-response-cache": "^2.1.0",
+    "@graphql-yoga/plugin-sofa": "^2.0.3",
+    "graphql": "^16.7.1",
+    "graphql-scalars": "^1.22.2",
+    "graphql-yoga": "^4.0.3",
     "mitata": "^0.1.6",
-    "prettier": "^2.8.4"
+    "prettier": "^3.0.0"
+  },
+  "resolutions": {
+    "graphql": "^16.7.1"
   }
 }
