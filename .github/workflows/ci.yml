@@ -19,6 +19,6 @@ jobs:
       - run: bun prisma generate
         env:
           DATABASE_URL: 'file:./dev.db'
-      - run: bun run e2e
+      - run: bun test
         env:
           DATABASE_URL: 'file:./dev.db'
