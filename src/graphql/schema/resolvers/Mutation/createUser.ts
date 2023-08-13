@@ -1,13 +1,11 @@
-import { PrismaClient } from '@prisma/client';
 import type { MutationResolvers } from './../../../types.generated';
+
 export const createUser: NonNullable<MutationResolvers['createUser']> = async (
   _parent,
   arg,
-  _ctx,
+  ctx,
 ) => {
-  const client = new PrismaClient();
-
-  const result = await client.user.create({
+  const result = await ctx.prisma.user.create({
     data: {
       name: arg.input.fullName,
       email: arg.input.email,

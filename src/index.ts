@@ -1,10 +1,12 @@
 import { createYoga, createSchema } from 'graphql-yoga';
 import { typeDefs } from './graphql/typeDefs.generated';
 import { resolvers } from './graphql/resolvers.generated';
+import { GraphQLContext, createContext } from './context';
 // import { useSofa } from '@graphql-yoga/plugin-sofa';
 
 const yoga = createYoga({
-  schema: createSchema({ typeDefs, resolvers }),
+  schema: createSchema<GraphQLContext>({ typeDefs, resolvers }),
+  context: createContext,
   plugins: [
     // useSofa({
     //   basePath: '/rest',
@@ -14,6 +16,7 @@ const yoga = createYoga({
     // }),
   ],
 });
+
 const server = Bun.serve(yoga);
 
 console.info(

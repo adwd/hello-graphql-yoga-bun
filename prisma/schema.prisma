@@ -11,7 +11,18 @@ datasource db {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  email String @unique
+  id    Int     @id @default(autoincrement())
+  email String  @unique
   name  String
+  Diary Diary[]
+}
+
+model Diary {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
 }

@@ -1,13 +1,11 @@
 import type { QueryResolvers } from './../../../types.generated';
-import { PrismaClient } from '@prisma/client';
+
 export const user: NonNullable<QueryResolvers['user']> = async (
   _parent,
   arg,
-  _ctx,
+  ctx,
 ) => {
-  const prisma = new PrismaClient();
-
-  const user = await prisma.user.findUnique({
+  const user = await ctx.prisma.user.findUnique({
     where: {
       id: parseInt(arg.id),
     },

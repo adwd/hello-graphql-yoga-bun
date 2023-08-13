@@ -1,5 +1,5 @@
 import { GraphQLResolveInfo } from 'graphql';
-import { Context } from './context';
+import { GraphQLContext } from '../context';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -38,6 +38,17 @@ export type Book = {
   isbn: Scalars['String']['output'];
 };
 
+export type CreateDiaryInput = {
+  content: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+  userId: Scalars['ID']['input'];
+};
+
+export type CreateDiaryPayload = {
+  __typename?: 'CreateDiaryPayload';
+  diary?: Maybe<Diary>;
+};
+
 export type CreateUserInput = {
   email: Scalars['String']['input'];
   fullName: Scalars['String']['input'];
@@ -48,10 +59,22 @@ export type CreateUserPayload = {
   user?: Maybe<User>;
 };
 
+export type Diary = {
+  __typename?: 'Diary';
+  content: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  title: Scalars['String']['output'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  createDiary: CreateDiaryPayload;
   createUser: CreateUserPayload;
   markBookAsRead: Book;
+};
+
+export type MutationCreateDiaryArgs = {
+  input: CreateDiaryInput;
 };
 
 export type MutationCreateUserArgs = {
@@ -65,7 +88,9 @@ export type MutationMarkBookAsReadArgs = {
 export type Query = {
   __typename?: 'Query';
   book?: Maybe<Book>;
+  diaries: Array<Diary>;
   user?: Maybe<User>;
+  users: Array<User>;
 };
 
 export type QueryBookArgs = {
@@ -194,8 +219,11 @@ export type ResolversTypes = {
   Book: ResolverTypeWrapper<Book>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  CreateDiaryInput: CreateDiaryInput;
+  CreateDiaryPayload: ResolverTypeWrapper<CreateDiaryPayload>;
   CreateUserInput: CreateUserInput;
   CreateUserPayload: ResolverTypeWrapper<CreateUserPayload>;
+  Diary: ResolverTypeWrapper<Diary>;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
   User: ResolverTypeWrapper<User>;
@@ -207,8 +235,11 @@ export type ResolversParentTypes = {
   Book: Book;
   ID: Scalars['ID']['output'];
   String: Scalars['String']['output'];
+  CreateDiaryInput: CreateDiaryInput;
+  CreateDiaryPayload: CreateDiaryPayload;
   CreateUserInput: CreateUserInput;
   CreateUserPayload: CreateUserPayload;
+  Diary: Diary;
   Mutation: {};
   Query: {};
   User: User;
@@ -216,7 +247,7 @@ export type ResolversParentTypes = {
 };
 
 export type BookResolvers<
-  ContextType = Context,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes['Book'] = ResolversParentTypes['Book'],
 > = {
@@ -225,8 +256,17 @@ export type BookResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type CreateDiaryPayloadResolvers<
+  ContextType = GraphQLContext,
+  ParentType extends
+    ResolversParentTypes['CreateDiaryPayload'] = ResolversParentTypes['CreateDiaryPayload'],
+> = {
+  diary?: Resolver<Maybe<ResolversTypes['Diary']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type CreateUserPayloadResolvers<
-  ContextType = Context,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes['CreateUserPayload'] = ResolversParentTypes['CreateUserPayload'],
 > = {
@@ -234,11 +274,28 @@ export type CreateUserPayloadResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type DiaryResolvers<
+  ContextType = GraphQLContext,
+  ParentType extends
+    ResolversParentTypes['Diary'] = ResolversParentTypes['Diary'],
+> = {
+  content?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type MutationResolvers<
-  ContextType = Context,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation'],
 > = {
+  createDiary?: Resolver<
+    ResolversTypes['CreateDiaryPayload'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationCreateDiaryArgs, 'input'>
+  >;
   createUser?: Resolver<
     ResolversTypes['CreateUserPayload'],
     ParentType,
@@ -254,7 +311,7 @@ export type MutationResolvers<
 };
 
 export type QueryResolvers<
-  ContextType = Context,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes['Query'] = ResolversParentTypes['Query'],
 > = {
@@ -264,16 +321,18 @@ export type QueryResolvers<
     ContextType,
     RequireFields<QueryBookArgs, 'id'>
   >;
+  diaries?: Resolver<Array<ResolversTypes['Diary']>, ParentType, ContextType>;
   user?: Resolver<
     Maybe<ResolversTypes['User']>,
     ParentType,
     ContextType,
     RequireFields<QueryUserArgs, 'id'>
   >;
+  users?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
 };
 
 export type UserResolvers<
-  ContextType = Context,
+  ContextType = GraphQLContext,
   ParentType extends
     ResolversParentTypes['User'] = ResolversParentTypes['User'],
 > = {
@@ -284,9 +343,11 @@ export type UserResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type Resolvers<ContextType = Context> = {
+export type Resolvers<ContextType = GraphQLContext> = {
   Book?: BookResolvers<ContextType>;
+  CreateDiaryPayload?: CreateDiaryPayloadResolvers<ContextType>;
   CreateUserPayload?: CreateUserPayloadResolvers<ContextType>;
+  Diary?: DiaryResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   User?: UserResolvers<ContextType>;

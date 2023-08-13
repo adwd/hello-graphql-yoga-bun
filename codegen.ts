@@ -6,7 +6,7 @@ const config: CodegenConfig = {
   generates: {
     'src/graphql': defineConfig({
       typesPluginsConfig: {
-        contextType: './context#Context',
+        contextType: '../context#GraphQLContext',
       },
     }),
     './test/gql/': {

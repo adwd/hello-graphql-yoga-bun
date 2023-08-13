@@ -35,6 +35,17 @@ export type Book = {
   isbn: Scalars['String']['output'];
 };
 
+export type CreateDiaryInput = {
+  content: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+  userId: Scalars['ID']['input'];
+};
+
+export type CreateDiaryPayload = {
+  __typename?: 'CreateDiaryPayload';
+  diary?: Maybe<Diary>;
+};
+
 export type CreateUserInput = {
   email: Scalars['String']['input'];
   fullName: Scalars['String']['input'];
@@ -45,10 +56,22 @@ export type CreateUserPayload = {
   user?: Maybe<User>;
 };
 
+export type Diary = {
+  __typename?: 'Diary';
+  content: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  title: Scalars['String']['output'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  createDiary: CreateDiaryPayload;
   createUser: CreateUserPayload;
   markBookAsRead: Book;
+};
+
+export type MutationCreateDiaryArgs = {
+  input: CreateDiaryInput;
 };
 
 export type MutationCreateUserArgs = {
@@ -62,7 +85,9 @@ export type MutationMarkBookAsReadArgs = {
 export type Query = {
   __typename?: 'Query';
   book?: Maybe<Book>;
+  diaries: Array<Diary>;
   user?: Maybe<User>;
+  users: Array<User>;
 };
 
 export type QueryBookArgs = {

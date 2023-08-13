@@ -4,10 +4,16 @@ import { resolvers } from '../src/graphql/resolvers.generated';
 import { createYoga, createSchema } from 'graphql-yoga';
 import { graphql } from './gql';
 import { createExecuter } from './util.js';
+import { createContext } from '../src/context';
 
 const schema = createSchema({ typeDefs, resolvers });
 const graphqlEndpoint = '/test-graphql';
-const yoga = createYoga({ schema, graphqlEndpoint, logging: false });
+const yoga = createYoga({
+  schema,
+  context: createContext,
+  graphqlEndpoint,
+  logging: true,
+});
 const execute = createExecuter(yoga);
 
 test('should handle a GraphQL operation', async () => {

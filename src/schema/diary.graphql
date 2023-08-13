@@ -1,0 +1,23 @@
+extend type Query {
+  diaries: [Diary!]!
+}
+
+extend type Mutation {
+  createDiary(input: CreateDiaryInput!): CreateDiaryPayload!
+}
+
+input CreateDiaryInput {
+  userId: ID!
+  title: String!
+  content: String!
+}
+
+type CreateDiaryPayload {
+  diary: Diary
+}
+
+type Diary {
+  id: ID!
+  title: String!
+  content: String!
+}
