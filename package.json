@@ -12,25 +12,25 @@
     "test": "bun test"
   },
   "devDependencies": {
-    "bun-types": "^0.7.1"
+    "bun-types": "^0.8.0"
   },
   "dependencies": {
-    "@eddeee888/gcg-typescript-resolver-files": "^0.5.0",
+    "@eddeee888/gcg-typescript-resolver-files": "^0.6.0",
     "@graphql-codegen/cli": "^5.0.0",
     "@graphql-codegen/client-preset": "^4.1.0",
     "@graphql-tools/executor-http": "^1.0.2",
     "@graphql-typed-document-node/core": "^3.2.0",
-    "@graphql-yoga/plugin-response-cache": "^2.1.0",
-    "@graphql-yoga/plugin-sofa": "^2.0.3",
-    "@prisma/client": "5.0.0",
-    "graphql": "^16.7.1",
+    "@graphql-yoga/plugin-response-cache": "^2.1.1",
+    "@graphql-yoga/plugin-sofa": "^2.0.4",
+    "@prisma/client": "5.2.0",
+    "graphql": "^16.8.0",
     "graphql-scalars": "^1.22.2",
-    "graphql-yoga": "^4.0.3",
+    "graphql-yoga": "^4.0.4",
     "mitata": "^0.1.6",
-    "prettier": "^3.0.0",
-    "prisma": "^5.0.0"
+    "prettier": "^3.0.2",
+    "prisma": "^5.2.0"
   },
   "resolutions": {
-    "graphql": "^16.7.1"
+    "graphql": "^16.8.0"
   }
 }
