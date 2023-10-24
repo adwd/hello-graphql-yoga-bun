@@ -20,15 +20,15 @@
     "@graphql-codegen/client-preset": "^4.1.0",
     "@graphql-tools/executor-http": "^1.0.3",
     "@graphql-typed-document-node/core": "^3.2.0",
-    "@graphql-yoga/plugin-response-cache": "^2.2.0",
-    "@graphql-yoga/plugin-sofa": "^2.0.5",
-    "@prisma/client": "5.4.2",
+    "@graphql-yoga/plugin-response-cache": "^3.0.0",
+    "@graphql-yoga/plugin-sofa": "^3.0.0",
+    "@prisma/client": "5.5.0",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.22.4",
-    "graphql-yoga": "^4.0.5",
+    "graphql-yoga": "^5.0.0",
     "mitata": "^0.1.6",
     "prettier": "^3.0.3",
-    "prisma": "^5.4.2"
+    "prisma": "^5.5.0"
   },
   "resolutions": {
     "graphql": "16.8.1"

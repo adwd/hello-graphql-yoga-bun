@@ -1,7 +1,7 @@
 import { GraphQLResolveInfo } from 'graphql';
 import { GraphQLContext } from '../context';
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
+export type Maybe<T> = T | null | undefined;
+export type InputMaybe<T> = T | null | undefined;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
@@ -73,15 +73,15 @@ export type Mutation = {
   markBookAsRead: Book;
 };
 
-export type MutationCreateDiaryArgs = {
+export type MutationcreateDiaryArgs = {
   input: CreateDiaryInput;
 };
 
-export type MutationCreateUserArgs = {
+export type MutationcreateUserArgs = {
   input: CreateUserInput;
 };
 
-export type MutationMarkBookAsReadArgs = {
+export type MutationmarkBookAsReadArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -93,11 +93,11 @@ export type Query = {
   users: Array<User>;
 };
 
-export type QueryBookArgs = {
+export type QuerybookArgs = {
   id: Scalars['ID']['input'];
 };
 
-export type QueryUserArgs = {
+export type QueryuserArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -294,19 +294,19 @@ export type MutationResolvers<
     ResolversTypes['CreateDiaryPayload'],
     ParentType,
     ContextType,
-    RequireFields<MutationCreateDiaryArgs, 'input'>
+    RequireFields<MutationcreateDiaryArgs, 'input'>
   >;
   createUser?: Resolver<
     ResolversTypes['CreateUserPayload'],
     ParentType,
     ContextType,
-    RequireFields<MutationCreateUserArgs, 'input'>
+    RequireFields<MutationcreateUserArgs, 'input'>
   >;
   markBookAsRead?: Resolver<
     ResolversTypes['Book'],
     ParentType,
     ContextType,
-    RequireFields<MutationMarkBookAsReadArgs, 'id'>
+    RequireFields<MutationmarkBookAsReadArgs, 'id'>
   >;
 };
 
@@ -319,14 +319,14 @@ export type QueryResolvers<
     Maybe<ResolversTypes['Book']>,
     ParentType,
     ContextType,
-    RequireFields<QueryBookArgs, 'id'>
+    RequireFields<QuerybookArgs, 'id'>
   >;
   diaries?: Resolver<Array<ResolversTypes['Diary']>, ParentType, ContextType>;
   user?: Resolver<
     Maybe<ResolversTypes['User']>,
     ParentType,
     ContextType,
-    RequireFields<QueryUserArgs, 'id'>
+    RequireFields<QueryuserArgs, 'id'>
   >;
   users?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
 };
