@@ -17,8 +17,10 @@ jobs:
           cache-bin: true
       - run: bun install
       - run: bun prisma generate
+        working-directory: ./packages/server
         env:
           DATABASE_URL: 'file:./dev.db'
       - run: bun test
+        working-directory: ./packages/server
         env:
           DATABASE_URL: 'file:./dev.db'
