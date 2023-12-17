@@ -2,7 +2,7 @@ import { expect, test } from 'bun:test';
 import { typeDefs } from '../src/graphql/typeDefs.generated';
 import { resolvers } from '../src/graphql/resolvers.generated';
 import { createYoga, createSchema } from 'graphql-yoga';
-import { graphql } from './gql';
+import { graphql } from './gql/index.js';
 import { createExecuter } from './util.js';
 import { createContext } from '../src/context';
 
