@@ -16,11 +16,22 @@ jobs:
           cache: true
           cache-bin: true
       - run: bun install
-      - run: bun prisma generate
+##########
+# server #
+##########
+      - name: Prisma generate
+        run: bun prisma generate
         working-directory: ./packages/server
         env:
           DATABASE_URL: 'file:./dev.db'
-      - run: bun test
+      - name: server test
+        run: bun test
         working-directory: ./packages/server
         env:
           DATABASE_URL: 'file:./dev.db'
+##################
+# svelte-kit app #
+##################
+      - name: svelte-kit app test
+        run: bun test
+        working-directory: ./packages/web-app
