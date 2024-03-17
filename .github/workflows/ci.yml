@@ -12,7 +12,7 @@ jobs:
       - name: Use Bun
         uses: antongolub/action-setup-bun@v1
         with:
-          bun-version: 1.0.18
+          bun-version: 1.0.31
           cache: true
           cache-bin: true
       - run: bun install
