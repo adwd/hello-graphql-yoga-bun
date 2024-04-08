@@ -1,5 +1,6 @@
 extend type Query {
   book(id: ID!): Book
+  books: [Book!]!
 }
 extend type Mutation {
   markBookAsRead(id: ID!): Book!

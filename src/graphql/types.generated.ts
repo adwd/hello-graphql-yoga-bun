@@ -88,6 +88,7 @@ export type MutationmarkBookAsReadArgs = {
 export type Query = {
   __typename?: 'Query';
   book?: Maybe<Book>;
+  books: Array<Book>;
   diaries: Array<Diary>;
   user?: Maybe<User>;
   users: Array<User>;
@@ -321,6 +322,7 @@ export type QueryResolvers<
     ContextType,
     RequireFields<QuerybookArgs, 'id'>
   >;
+  books?: Resolver<Array<ResolversTypes['Book']>, ParentType, ContextType>;
   diaries?: Resolver<Array<ResolversTypes['Diary']>, ParentType, ContextType>;
   user?: Resolver<
     Maybe<ResolversTypes['User']>,

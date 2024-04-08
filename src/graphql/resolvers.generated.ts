@@ -8,6 +8,7 @@ import { createDiary as Mutation_createDiary } from './schema/resolvers/Mutation
 import { createUser as Mutation_createUser } from './schema/resolvers/Mutation/createUser';
 import { markBookAsRead as Mutation_markBookAsRead } from './schema/resolvers/Mutation/markBookAsRead';
 import { book as Query_book } from './schema/resolvers/Query/book';
+import { books as Query_books } from './schema/resolvers/Query/books';
 import { diaries as Query_diaries } from './schema/resolvers/Query/diaries';
 import { user as Query_user } from './schema/resolvers/Query/user';
 import { users as Query_users } from './schema/resolvers/Query/users';
@@ -15,6 +16,7 @@ import { User } from './schema/resolvers/User';
 export const resolvers: Resolvers = {
   Query: {
     book: Query_book,
+    books: Query_books,
     diaries: Query_diaries,
     user: Query_user,
     users: Query_users,

@@ -31,5 +31,8 @@
   },
   "resolutions": {
     "graphql": "16.8.1"
+  },
+  "prisma": {
+    "seed": "bun run prisma/seed.ts"
   }
 }

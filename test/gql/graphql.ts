@@ -85,6 +85,7 @@ export type MutationMarkBookAsReadArgs = {
 export type Query = {
   __typename?: 'Query';
   book?: Maybe<Book>;
+  books: Array<Book>;
   diaries: Array<Diary>;
   user?: Maybe<User>;
   users: Array<User>;

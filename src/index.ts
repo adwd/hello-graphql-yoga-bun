@@ -8,7 +8,9 @@ const yoga = createYoga({
   context: createContext,
 });
 
-const server = Bun.serve(yoga);
+const server = Bun.serve({
+  fetch: yoga,
+});
 
 console.info(
   `Server is running on ${new URL(
