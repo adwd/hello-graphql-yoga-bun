@@ -1,4 +1,4 @@
-import type { MutationResolvers } from './../../../types.generated';
+import type { MutationResolvers } from './../../../graphql/types.generated';
 
 export const createUser: NonNullable<MutationResolvers['createUser']> = async (
   _parent,

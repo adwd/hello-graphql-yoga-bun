@@ -1,4 +1,4 @@
-import type { QueryResolvers } from './../../../types.generated';
+import type { QueryResolvers } from './../../../graphql/types.generated';
 export const users: NonNullable<QueryResolvers['users']> = async (
   _parent,
   _arg,
