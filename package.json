@@ -15,22 +15,22 @@
     "bun-types": "^1.1.16"
   },
   "dependencies": {
-    "@eddeee888/gcg-typescript-resolver-files": "^0.8.0",
+    "@eddeee888/gcg-typescript-resolver-files": "^0.9.4",
     "@graphql-codegen/cli": "^5.0.2",
-    "@graphql-codegen/client-preset": "^4.2.5",
+    "@graphql-codegen/client-preset": "^4.3.0",
     "@graphql-tools/executor-http": "^1.0.9",
     "@graphql-typed-document-node/core": "^3.2.0",
-    "@graphql-yoga/plugin-response-cache": "^3.5.1",
+    "@graphql-yoga/plugin-response-cache": "^3.6.0",
     "@prisma/client": "5.13.0",
-    "graphql": "^16.8.1",
+    "graphql": "^16.9.0",
     "graphql-scalars": "^1.23.0",
-    "graphql-yoga": "^5.3.1",
+    "graphql-yoga": "^5.4.0",
     "mitata": "^0.1.11",
-    "prettier": "^3.2.5",
-    "prisma": "^5.13.0"
+    "prettier": "^3.3.2",
+    "prisma": "^5.15.1"
   },
   "resolutions": {
-    "graphql": "16.8.1"
+    "graphql": "16.9.0"
   },
   "prisma": {
     "seed": "bun run prisma/seed.ts"
