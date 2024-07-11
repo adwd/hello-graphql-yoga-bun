@@ -1,0 +1,50 @@
+type Book {
+  id: ID!
+  isbn: String!
+}
+
+input CreateDiaryInput {
+  content: String!
+  title: String!
+  userId: ID!
+}
+
+type CreateDiaryPayload {
+  diary: Diary
+}
+
+input CreateUserInput {
+  email: String!
+  fullName: String!
+}
+
+type CreateUserPayload {
+  user: User
+}
+
+type Diary {
+  content: String!
+  id: ID!
+  title: String!
+}
+
+type Mutation {
+  createDiary(input: CreateDiaryInput!): CreateDiaryPayload!
+  createUser(input: CreateUserInput!): CreateUserPayload!
+  markBookAsRead(id: ID!): Book!
+}
+
+type Query {
+  book(id: ID!): Book
+  books: [Book!]!
+  diaries: [Diary!]!
+  user(id: ID!): User
+  users: [User!]!
+}
+
+type User {
+  email: String!
+  fullName: String!
+  id: ID!
+  isAdmin: Boolean!
+}
